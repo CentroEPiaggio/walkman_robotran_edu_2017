@@ -143,6 +143,10 @@ void init_actuator_model(MBSdataStruct *MBSdata)
 
     switch (Act_order) {
 
+    case 0:
+        // (rigid motor, no ODE)
+        break;
+
     case 1:
         justElectrical:
         // Motor (electrical) ODE

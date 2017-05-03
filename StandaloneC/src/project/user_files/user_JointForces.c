@@ -14,6 +14,8 @@ double* user_JointForces(MBSdataStruct *MBSdata, double tsim)
 	int i;
 
     int joint_id;
+
+    double K_W, KT, G_ratio, R_M;
     
     // user variables
     UserIOStruct *uvs;
@@ -24,8 +26,32 @@ double* user_JointForces(MBSdataStruct *MBSdata, double tsim)
 	{
 		switch (Act_order) {
 
+        case 0:
+            //(rigid motor, no ODE)
+            for (i = 0; i < COMAN_NB_JOINT_ACTUATED; i++)
+            {
+                joint_id = uvs->actuatorsStruct->JointIds[i];
+
+                KT = K_W = uvs->actuatorsStruct->acs[i]->Kbemf;
+                G_ratio = uvs->actuatorsStruct->acs[i]->GearRatio;
+                R_M = uvs->actuatorsStruct->acs[i]->Resistance;
+
+                MBSdata->Qq[joint_id] = (KT*G_ratio/R_M)*(uvs->Voltage[i+1]-K_W*G_ratio*MBSdata->qd[joint_id]);
+            }
+            break;
+
 		case 1:
-			printf("pure electrical torque not yet implemented \n");
+            // ux:current, uxd: current derivatives:
+
+            for (i = 0; i < COMAN_NB_JOINT_ACTUATED; i++)
+            {
+                joint_id = uvs->actuatorsStruct->JointIds[i];
+
+                KT = K_W = uvs->actuatorsStruct->acs[i]->Kbemf;
+                G_ratio = uvs->actuatorsStruct->acs[i]->GearRatio;
+
+                MBSdata->Qq[joint_id] = (KT*G_ratio)*MBSdata->ux[i+1];
+            }
 			break;
 
 		case 2:

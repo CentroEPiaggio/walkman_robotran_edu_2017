@@ -15,6 +15,8 @@ typedef struct ControllerPIDs
     double maxInt[COMAN_NB_JOINT_ACTUATED+1];
     double maxOut[COMAN_NB_JOINT_ACTUATED+1];
     double int_err[COMAN_NB_JOINT_ACTUATED+1];  //integral error
+    double der_last[COMAN_NB_JOINT_ACTUATED+1];  // to compute derivative error
+    double der_err[COMAN_NB_JOINT_ACTUATED+1];  // to compute derivative error
 } ControllerPIDs ;
 
 ControllerPIDs* init_ControllerPIDs(void);

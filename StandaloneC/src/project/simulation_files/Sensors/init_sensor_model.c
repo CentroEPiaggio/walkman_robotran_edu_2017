@@ -79,7 +79,14 @@ void update_sensor_model(MBSdataStruct *MBSdata)
     }
 
     switch (Act_order) {
+        case 0:  // (rigid motor, no ODE)
+            ivs->q_mot[i + 1] = MBSdata->q[actuatorsStruct->JointIds[i]];
+            ivs->qd_mot[i + 1] = MBSdata->qd[actuatorsStruct->JointIds[i]];
+            break;
+
         case 1:  // justElectrical
+            ivs->q_mot[i + 1] = MBSdata->q[actuatorsStruct->JointIds[i]];
+            ivs->qd_mot[i + 1] = MBSdata->qd[actuatorsStruct->JointIds[i]];
             break;
 
         case 2: // Motor (Mechanical) ODE

@@ -1,0 +1,123 @@
+// LEGS
+double P_HIP_SAG	= 0;
+double I_HIP_SAG	= 1.0;
+double D_HIP_SAG	= 10.0;
+
+double P_HIP_LAT 	= 500.0;
+double I_HIP_LAT 	= 1.0;
+double D_HIP_LAT 	10.0;
+
+double P_HIP_TRANS	500.0;
+double I_HIP_TRANS	1.0;
+double D_HIP_TRANS	10.0;
+
+double P_KNEE_SAG 	-100;
+double I_KNEE_SAG 	1.0;
+double D_KNEE_SAG 	100.0;
+
+double P_ANK_LAT 	500.0;
+double I_ANK_LAT 	1.0;
+double D_ANK_LAT 	10.0;
+
+double P_ANK_SAG 	-0.15;
+double I_ANK_SAG 	1.0;
+double D_ANK_SAG 	10.0;
+
+// torso
+double P_WAIST_LAT 	500.0;
+double I_WAIST_LAT 	1.0;
+double D_WAIST_LAT 	10.0;
+
+double P_WAIST_SAG 	500.0;
+double I_WAIST_SAG 	1.0;
+double D_WAIST_SAG 	10.0;
+
+double P_WAIST_TRANS 	500.0;
+double I_WAIST_TRANS 	1.0;
+double D_WAIST_TRANS 	10.0;
+
+
+// ARMS
+double P_SH_SAG 	240.0;
+double I_SH_SAG 	0.0;
+double D_SH_SAG 	10.0;
+
+double P_SH_LAT 	240.0;
+double I_SH_LAT 	1.0;
+double D_SH_LAT 	10.0;
+
+double P_SH_TRANS	240.0;
+double I_SH_TRANS	1.0;
+double D_SH_TRANS	10.0;
+
+double P_ELB		240.0;
+double I_ELB		1.0;
+double D_ELB		10.0;
+
+double P_FORE_ARM_PLATE	240.0;
+double I_FORE_ARM_PLATE	1.0;
+double D_FORE_ARM_PLATE	10.0;
+
+double P_WRJ1		240.0;
+double I_WRJ1		1.0;
+double D_WRJ1		10.0;
+
+double P_WRJ2		240.0;
+double I_WRJ2		1.0;
+double D_WRJ2		10.0;
+
+double P_NECK_YAW	20.0;
+double I_NECK_YAW	0.0;
+double D_NECK_YAW	0.0;
+
+double P_NECK_PITCH	20.0;
+double I_NECK_PITCH	0.0;
+double D_NECK_PITCH	0.0;
+
+    
+//     i = R_SH_LAT_MOT;
+//     j = L_SH_LAT_MOT;
+//     uvs->PIDs_torque->p[i+1] = uvs->PIDs_pos->p[j+1] = 240.;
+//     uvs->PIDs_torque->i[i+1] = uvs->PIDs_pos->i[j+1] = 0.;
+//     uvs->PIDs_torque->d[i+1] = uvs->PIDs_pos->d[j+1] = 1.;
+//     
+//     i = R_SH_TRANS_MOT;
+//     j = L_SH_TRANS_MOT;
+//     uvs->PIDs_torque->p[i+1] = uvs->PIDs_pos->p[j+1] = 240.;
+//     uvs->PIDs_torque->i[i+1] = uvs->PIDs_pos->i[j+1] = 0.;
+//     uvs->PIDs_torque->d[i+1] = uvs->PIDs_pos->d[j+1] = 1.;
+//     
+//     i = R_ELB_MOT;
+//     j = L_ELB_MOT;
+//     uvs->PIDs_torque->p[i+1] = uvs->PIDs_pos->p[j+1] = 240.;
+//     uvs->PIDs_torque->i[i+1] = uvs->PIDs_pos->i[j+1] = 0.;
+//     uvs->PIDs_torque->d[i+1] = uvs->PIDs_pos->d[j+1] = 1.;
+//     
+//     i = R_FORE_ARM_PLATE_MOT;
+//     j = L_FORE_ARM_PLATE_MOT;
+//     uvs->PIDs_torque->p[i+1] = uvs->PIDs_pos->p[j+1] = 240.;
+//     uvs->PIDs_torque->i[i+1] = uvs->PIDs_pos->i[j+1] = 0.;
+//     uvs->PIDs_torque->d[i+1] = uvs->PIDs_pos->d[j+1] = 1.;
+//     
+//     i = R_WRJ1_MOT;
+//     j = L_WRJ1_MOT;
+//     uvs->PIDs_torque->p[i+1] = uvs->PIDs_pos->p[j+1] = 240.;
+//     uvs->PIDs_torque->i[i+1] = uvs->PIDs_pos->i[j+1] = 0.;
+//     uvs->PIDs_torque->d[i+1] = uvs->PIDs_pos->d[j+1] = 1.;
+//     
+//     i = R_WRJ2_MOT;
+//     j = L_WRJ2_MOT;
+//     uvs->PIDs_torque->p[i+1] = uvs->PIDs_pos->p[j+1] = 240.;
+//     uvs->PIDs_torque->i[i+1] = uvs->PIDs_pos->i[j+1] = 0.;
+//     uvs->PIDs_torque->d[i+1] = uvs->PIDs_pos->d[j+1] = 1.;
+//     
+//     // head
+//     i = NECK_YAW_MOT;
+//     uvs->PIDs_torque->p[i+1] = 240.;
+//     uvs->PIDs_torque->i[i+1] = 0.;
+//     uvs->PIDs_torque->d[i+1] = 0.;
+//     
+//     i = NECK_PITCH_MOT;
+//     uvs->PIDs_torque->p[i+1] = 240.;
+//     uvs->PIDs_torque->i[i+1] = 0.;
+//     uvs->PIDs_torque->d[i+1] = 0.;

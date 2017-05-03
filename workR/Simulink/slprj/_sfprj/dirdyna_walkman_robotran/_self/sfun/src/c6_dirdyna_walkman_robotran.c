@@ -373,7 +373,7 @@ static void sf_gateway_c6_dirdyna_walkman_robotran
   c6_J = (real_T (*)[186])ssGetInputPortSignal(chartInstance->S, 0);
   _SFD_SYMBOL_SCOPE_PUSH(0U, 0U);
   _sfTime_ = sf_get_time(chartInstance->S);
-  _SFD_CC_CALL(CHART_ENTER_SFUNCTION_TAG, 1U, chartInstance->c6_sfEvent);
+  _SFD_CC_CALL(CHART_ENTER_SFUNCTION_TAG, 2U, chartInstance->c6_sfEvent);
   for (c6_i2 = 0; c6_i2 < 186; c6_i2++) {
     _SFD_DATA_RANGE_CHECK((*c6_J)[c6_i2], 0U);
   }
@@ -469,7 +469,7 @@ static void c6_chartstep_c6_dirdyna_walkman_robotran
   c6_b_ref_dot = (real_T (*)[3])ssGetInputPortSignal(chartInstance->S, 1);
   c6_b_q_dot = (real_T (*)[31])ssGetOutputPortSignal(chartInstance->S, 1);
   c6_c_J = (real_T (*)[186])ssGetInputPortSignal(chartInstance->S, 0);
-  _SFD_CC_CALL(CHART_ENTER_DURING_FUNCTION_TAG, 1U, chartInstance->c6_sfEvent);
+  _SFD_CC_CALL(CHART_ENTER_DURING_FUNCTION_TAG, 2U, chartInstance->c6_sfEvent);
   for (c6_i7 = 0; c6_i7 < 186; c6_i7++) {
     c6_J[c6_i7] = (*c6_c_J)[c6_i7];
   }
@@ -638,7 +638,7 @@ static void c6_chartstep_c6_dirdyna_walkman_robotran
     (*c6_b_q_dot)[c6_i39] = c6_q_dot[c6_i39];
   }
 
-  _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 1U, chartInstance->c6_sfEvent);
+  _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 2U, chartInstance->c6_sfEvent);
 }
 
 static void initSimStructsc6_dirdyna_walkman_robotran

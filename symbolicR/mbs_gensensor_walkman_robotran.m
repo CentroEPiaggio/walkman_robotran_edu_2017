@@ -11,7 +11,7 @@
 %	1348 Louvain-la-Neuve 
 %	http://www.robotran.be// 
 %
-%	==> Generation Date : Mon Apr  4 18:57:26 2016
+%	==> Generation Date : Thu Oct 29 11:32:57 2015
 %
 %	==> Project name : walkman_robotran
 %	==> using XML input file 
@@ -21,8 +21,8 @@
 %	==> Function : F 6 : Sensors Kinematical Informations (sens) 
 %	==> Flops complexity : 26911
 %
-%	==> Generation Time :  0.520 seconds
-%	==> Post-Processing :  0.490 seconds
+%	==> Generation Time :  0.530 seconds
+%	==> Post-Processing :  0.500 seconds
 %
 %-------------------------------------------------------------
 %

@@ -2,6 +2,7 @@
 
 #include "dirdyna_walkman_robotran_sfun.h"
 #include "dirdyna_walkman_robotran_sfun_debug_macros.h"
+#include "c1_dirdyna_walkman_robotran.h"
 #include "c3_dirdyna_walkman_robotran.h"
 #include "c6_dirdyna_walkman_robotran.h"
 
@@ -30,6 +31,11 @@ unsigned int sf_dirdyna_walkman_robotran_method_dispatcher(SimStruct
   *simstructPtr, unsigned int chartFileNumber, const char* specsCksum, int_T
   method, void *data)
 {
+  if (chartFileNumber==1) {
+    c1_dirdyna_walkman_robotran_method_dispatcher(simstructPtr, method, data);
+    return 1;
+  }
+
   if (chartFileNumber==3) {
     c3_dirdyna_walkman_robotran_method_dispatcher(simstructPtr, method, data);
     return 1;
@@ -73,14 +79,22 @@ unsigned int sf_dirdyna_walkman_robotran_process_check_sum_call( int nlhs,
       ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(0U);
       ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(0U);
     } else if (!strcmp(commandName,"makefile")) {
-      ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(2099920425U);
-      ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(3656574460U);
-      ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1122523841U);
-      ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(959970343U);
+      ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(2437751677U);
+      ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(772913958U);
+      ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(2485815682U);
+      ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(2175339265U);
     } else if (nrhs==3 && !strcmp(commandName,"chart")) {
       unsigned int chartFileNumber;
       chartFileNumber = (unsigned int)mxGetScalar(prhs[2]);
       switch (chartFileNumber) {
+       case 1:
+        {
+          extern void sf_c1_dirdyna_walkman_robotran_get_check_sum(mxArray *
+            plhs[]);
+          sf_c1_dirdyna_walkman_robotran_get_check_sum(plhs);
+          break;
+        }
+
        case 3:
         {
           extern void sf_c3_dirdyna_walkman_robotran_get_check_sum(mxArray *
@@ -112,10 +126,10 @@ unsigned int sf_dirdyna_walkman_robotran_process_check_sum_call( int nlhs,
       return 0;
     }
   } else {
-    ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(2506957026U);
-    ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(174466977U);
-    ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(4022330114U);
-    ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(4032733919U);
+    ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(3762418336U);
+    ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2021718854U);
+    ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(795036281U);
+    ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(3446709164U);
   }
 
   return 1;
@@ -151,9 +165,22 @@ unsigned int sf_dirdyna_walkman_robotran_autoinheritance_info( int nlhs, mxArray
     unsigned int chartFileNumber;
     chartFileNumber = (unsigned int)mxGetScalar(prhs[1]);
     switch (chartFileNumber) {
+     case 1:
+      {
+        if (strcmp(aiChksum, "lrlgr0nQuiaMNT5nZQb5hF") == 0) {
+          extern mxArray
+            *sf_c1_dirdyna_walkman_robotran_get_autoinheritance_info(void);
+          plhs[0] = sf_c1_dirdyna_walkman_robotran_get_autoinheritance_info();
+          break;
+        }
+
+        plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
+        break;
+      }
+
      case 3:
       {
-        if (strcmp(aiChksum, "TRy9G500UwhglJy6q1fITC") == 0) {
+        if (strcmp(aiChksum, "GvFoSfTf4tkoc1G3tdEKzE") == 0) {
           extern mxArray
             *sf_c3_dirdyna_walkman_robotran_get_autoinheritance_info(void);
           plhs[0] = sf_c3_dirdyna_walkman_robotran_get_autoinheritance_info();
@@ -212,6 +239,17 @@ unsigned int sf_dirdyna_walkman_robotran_get_eml_resolved_functions_info( int
     unsigned int chartFileNumber;
     chartFileNumber = (unsigned int)mxGetScalar(prhs[1]);
     switch (chartFileNumber) {
+     case 1:
+      {
+        extern const mxArray
+          *sf_c1_dirdyna_walkman_robotran_get_eml_resolved_functions_info(void);
+        mxArray *persistentMxArray = (mxArray *)
+          sf_c1_dirdyna_walkman_robotran_get_eml_resolved_functions_info();
+        plhs[0] = mxDuplicateArray(persistentMxArray);
+        mxDestroyArray(persistentMxArray);
+        break;
+      }
+
      case 3:
       {
         extern const mxArray
@@ -269,9 +307,19 @@ unsigned int sf_dirdyna_walkman_robotran_third_party_uses_info( int nlhs,
     unsigned int chartFileNumber;
     chartFileNumber = (unsigned int)mxGetScalar(prhs[1]);
     switch (chartFileNumber) {
+     case 1:
+      {
+        if (strcmp(tpChksum, "MWoORVvjERRzIUO3f3upBE") == 0) {
+          extern mxArray *sf_c1_dirdyna_walkman_robotran_third_party_uses_info
+            (void);
+          plhs[0] = sf_c1_dirdyna_walkman_robotran_third_party_uses_info();
+          break;
+        }
+      }
+
      case 3:
       {
-        if (strcmp(tpChksum, "u0hb529p2kxB0tmoGtTFsG") == 0) {
+        if (strcmp(tpChksum, "hLNZZb063HmvdpNMqdf0j") == 0) {
           extern mxArray *sf_c3_dirdyna_walkman_robotran_third_party_uses_info
             (void);
           plhs[0] = sf_c3_dirdyna_walkman_robotran_third_party_uses_info();
@@ -317,9 +365,19 @@ unsigned int sf_dirdyna_walkman_robotran_updateBuildInfo_args_info( int nlhs,
     unsigned int chartFileNumber;
     chartFileNumber = (unsigned int)mxGetScalar(prhs[1]);
     switch (chartFileNumber) {
+     case 1:
+      {
+        if (strcmp(tpChksum, "MWoORVvjERRzIUO3f3upBE") == 0) {
+          extern mxArray
+            *sf_c1_dirdyna_walkman_robotran_updateBuildInfo_args_info(void);
+          plhs[0] = sf_c1_dirdyna_walkman_robotran_updateBuildInfo_args_info();
+          break;
+        }
+      }
+
      case 3:
       {
-        if (strcmp(tpChksum, "u0hb529p2kxB0tmoGtTFsG") == 0) {
+        if (strcmp(tpChksum, "hLNZZb063HmvdpNMqdf0j") == 0) {
           extern mxArray
             *sf_c3_dirdyna_walkman_robotran_updateBuildInfo_args_info(void);
           plhs[0] = sf_c3_dirdyna_walkman_robotran_updateBuildInfo_args_info();
@@ -349,7 +407,7 @@ void dirdyna_walkman_robotran_debug_initialize(struct SfDebugInstanceStruct*
   debugInstance)
 {
   _dirdyna_walkman_robotranMachineNumber_ = sf_debug_initialize_machine
-    (debugInstance,"dirdyna_walkman_robotran","sfun",0,2,0,0,0);
+    (debugInstance,"dirdyna_walkman_robotran","sfun",0,3,0,0,0);
   sf_debug_set_machine_event_thresholds(debugInstance,
     _dirdyna_walkman_robotranMachineNumber_,0,0);
   sf_debug_set_machine_data_thresholds(debugInstance,

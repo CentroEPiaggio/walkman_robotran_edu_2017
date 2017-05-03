@@ -11,7 +11,7 @@
 %	1348 Louvain-la-Neuve 
 %	http://www.robotran.be// 
 %
-%	==> Generation Date : Mon Apr  4 18:57:24 2016
+%	==> Generation Date : Thu Oct 29 11:32:53 2015
 %
 %	==> Project name : walkman_robotran
 %	==> using XML input file 
@@ -22,7 +22,7 @@
 %	==> Flops complexity : 26236
 %
 %	==> Generation Time :  0.430 seconds
-%	==> Post-Processing :  0.620 seconds
+%	==> Post-Processing :  0.630 seconds
 %
 %-------------------------------------------------------------
 %

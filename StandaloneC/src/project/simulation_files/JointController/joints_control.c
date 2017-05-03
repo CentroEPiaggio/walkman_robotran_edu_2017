@@ -35,7 +35,7 @@ void joints_control(MBSdataStruct *MBSdata)
 
         case POSITION_CTRL:
           position_control_mode:
-  
+// 	    printf("+++ Entering position_control_mode: joint_id %d\n", joint_id);
             // PID structure for each joint is initialized with YARP Conf if YARP flag is set
             // or by the default values if YARP flag is off.
             Kp = uvs->PIDs_pos->p[i+1];
@@ -52,11 +52,24 @@ void joints_control(MBSdataStruct *MBSdata)
         case TORQUE_CTRL:
           torque_control_mode:
             
+//             printf("+++ Entering torque_control_mode: joint_id %d\n", joint_id);
             // PID structure for each joint is initialized with YARP Conf if YARP flag is set
             // or by the default values if YARP flag is off.
             Kp = uvs->PIDs_torque->p[i+1];
-            
-			uvs->Voltage[i+1] = Kp*(Qq_ref[i+1] - MBSdata->Qq[joint_id]);
+	    Ki = uvs->PIDs_torque->i[i+1];
+	    Kd = uvs->PIDs_torque->d[i+1];
+
+	    error = (Qq_ref[i+1] - MBSdata->Qq[joint_id]);
+            uvs->PIDs_torque->int_err[i+1] += error * delta_tsim;
+//             printf("Kp: %f, Ki: %f, Kd: %f\n",Kp,Ki,Kd);
+// 	    printf("Qq_ref: %f\n",Qq_ref[i+1]);
+// 	    printf("MBSdata->Qq: %f\n",MBSdata->Qq[joint_id]);
+// 			uvs->Voltage[i+1] = Kp*(Qq_ref[i+1] - MBSdata->Qq[joint_id]);
+	    uvs->PIDs_torque->der_err[i+1] = (error - uvs->PIDs_torque->der_last[i+1])/delta_tsim;
+	    uvs->Voltage[i+1] = Kp*error + Ki*uvs->PIDs_torque->int_err[i+1] + Kd*uvs->PIDs_torque->der_err[i+1];
+	    uvs->PIDs_torque->der_last[i+1] = error;
+	    
+// 	    uvs->Voltage[i+1] = Qq_ref[i+1]/(uvs->Actuator_VTgain);
             break;
 
         case OPEN_LOOP_CTRL: 

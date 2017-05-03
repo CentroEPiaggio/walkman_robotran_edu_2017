@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mbsDescR7>
   <mbsname>walkman_robotran</mbsname>
-  <mbsyspad_version>1.9.3</mbsyspad_version>
+  <mbsyspad_version>0.0.beta</mbsyspad_version>
   <base>
     <!--this is the base body-->
     <gravity>
@@ -5267,78 +5267,79 @@
     </user_model>
   </user_models>
   <user_variables>
-    <!--this is the userIO list-->
-    <user_variable>
-      <varname>q_ref</varname>
-      <type>in</type>
-      <size>31</size>
-    </user_variable>
-    <user_variable>
-      <varname>Qq_ref</varname>
-      <type>in</type>
-      <size>31</size>
-    </user_variable>
-    <user_variable>
-      <varname>servo_type</varname>
-      <type>in</type>
-      <size>31</size>
-    </user_variable>
-    <user_variable>
-      <varname>voltage</varname>
-      <type>in</type>
-      <size>31</size>
-    </user_variable>
-    <user_variable>
-      <varname>t</varname>
-      <type>out</type>
-      <size>1</size>
-    </user_variable>
-    <user_variable>
-      <varname>q_link</varname>
-      <type>out</type>
-      <size>31</size>
-    </user_variable>
-    <user_variable>
-      <varname>qd_link</varname>
-      <type>out</type>
-      <size>31</size>
-    </user_variable>
-    <user_variable>
-      <varname>Qq_link</varname>
-      <type>out</type>
-      <size>31</size>
-    </user_variable>
-    <user_variable>
-      <varname>q_mot</varname>
-      <type>out</type>
-      <size>31</size>
-    </user_variable>
-    <user_variable>
-      <varname>qd_mot</varname>
-      <type>out</type>
-      <size>31</size>
-    </user_variable>
-    <user_variable>
-      <varname>FT_Rfoot</varname>
-      <type>out</type>
-      <size>6</size>
-    </user_variable>
-    <user_variable>
-      <varname>FT_Lfoot</varname>
-      <type>out</type>
-      <size>6</size>
-    </user_variable>
-    <user_variable>
-      <varname>IMU_waist</varname>
-      <type>out</type>
-      <size>15</size>
-    </user_variable>
-    <user_variable>
-      <varname>waist_pose</varname>
-      <type>out</type>
-      <size>6</size>
-    </user_variable>
-  </user_variables>
+  	<!--Inputs-->
+	<user_variable>            
+		<varname>q_ref</varname>
+		<type>in</type>
+		<size>31</size>
+	</user_variable>
+	<user_variable>            
+		<varname>Qq_ref</varname>
+		<type>in</type>
+		<size>31</size>
+	</user_variable>
+	<user_variable>            
+		<varname>servo_type</varname>
+		<type>in</type>
+		<size>31</size>
+	</user_variable>
+    <user_variable>            
+    <varname>voltage</varname>
+    <type>in</type>
+    <size>31</size>
+  </user_variable>
+	<!--Outputs-->
+	<user_variable>            
+		<varname>t</varname>
+		<type>out</type>
+		<size>1</size>
+	</user_variable>
+        <user_variable>
+                <varname>q_link</varname>
+                <type>out</type>
+                <size>31</size>
+        </user_variable>
+        <user_variable>
+                <varname>qd_link</varname>
+                <type>out</type>
+                <size>31</size>
+        </user_variable>
+        <user_variable>
+                <varname>Qq_link</varname>
+                <type>out</type>
+                <size>31</size>
+        </user_variable>
+        <user_variable>
+                <varname>q_mot</varname>
+                <type>out</type>
+                <size>31</size>
+        </user_variable>
+        <user_variable>
+                <varname>qd_mot</varname>
+                <type>out</type>
+                <size>31</size>
+        </user_variable>
+        <user_variable>
+                <varname>FT_Rfoot</varname>
+                <type>out</type>
+                <size>6</size>
+        </user_variable>
+        <user_variable>
+                <varname>FT_Lfoot</varname>
+                <type>out</type>
+                <size>6</size>
+        </user_variable>
+        <user_variable>
+                <varname>IMU_waist</varname>
+                <type>out</type>
+                <size>15</size>
+        </user_variable>
+        <user_variable>
+                <varname>waist_pose</varname>
+                <type>out</type>
+                <size>6</size>
+        </user_variable>
+</user_variables>
   <x3D>
     <background>
       <!--This is the background properties-->

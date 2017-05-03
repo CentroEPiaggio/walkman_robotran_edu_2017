@@ -16,7 +16,6 @@ for ii=1:length(mbs_data__.q)
         sensor_list_com = [sensor_list_com; sensor_list_i];
     end
 end
-% sensor_list_com = find(strcmp(sensor_list,'DWYTorsoCg'));
 
 left_hand_sensor = find(strcmp(sensor_list,'Lhand_sens'));
 right_hand_sensor = find(strcmp(sensor_list,'Rhand_sens'));
@@ -34,16 +33,12 @@ Waist_cg_sensor_idx = find(strcmp(sensor_list, 'WaistCg'));
 q_homing = mbs_data__.q;
 q_homing = q_homing(joints_mapping(7:end));
 
-%% controller gains
-KP_gain_ik = diag([1 1 1])*2;
-KO_gain_ik = diag([1 1 1])*2;
-K_gain_ik = blkdiag(KP_gain_ik,KO_gain_ik);
-start_control_time = 0;
-
-load left_hand_trajectory.mat;
-
+%% Generic settings
 % sampling time
 Ts = 0.0005;
-Tfin = 10;
+% simulation time
+Tfin = 2;
 
+%% cartesian trajectories settings
+KP_gain_ik = 1*diag([1 1 1]);
 generate_left_hand_trajectories

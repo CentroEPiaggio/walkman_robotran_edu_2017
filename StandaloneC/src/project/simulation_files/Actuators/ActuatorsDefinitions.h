@@ -7,7 +7,7 @@
 
 // Actuator Options:
 
-#define Act_order 2 // 1st (electric), 2nd (mechanical) or 3rd (electrical, mechanical)
+#define Act_order 2 // 0th (rigid motor, no meca and no elec), 1st (electric), 2nd (mechanical) or 3rd (electrical, mechanical)
 
 #define Act_type 1  // 1 SEA  2 PEA
 

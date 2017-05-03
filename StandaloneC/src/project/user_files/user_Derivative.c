@@ -45,6 +45,11 @@ void user_Derivative(MBSdataStruct *MBSdata)
     {
         switch (Act_order) {
 
+        case 0:
+            //(rigid motor, no ODE)
+            // no derivative
+            break;
+
         case 1:
             justElectrical:
             // Motor (electrical) ODE

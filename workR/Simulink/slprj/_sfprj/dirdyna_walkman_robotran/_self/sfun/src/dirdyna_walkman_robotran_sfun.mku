@@ -8,7 +8,7 @@ LD = $(CC)
  
 MACHINE     = dirdyna_walkman_robotran
 TARGET      = sfun
-CHART_SRCS   = c3_dirdyna_walkman_robotran.c c6_dirdyna_walkman_robotran.c
+CHART_SRCS   = c1_dirdyna_walkman_robotran.c c3_dirdyna_walkman_robotran.c c6_dirdyna_walkman_robotran.c
 MACHINE_SRC  = dirdyna_walkman_robotran_sfun.c
 MACHINE_REG = dirdyna_walkman_robotran_sfun_registry.c
 MAKEFILE    = dirdyna_walkman_robotran_sfun.mku
